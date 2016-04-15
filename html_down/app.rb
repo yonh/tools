@@ -17,11 +17,21 @@ if url then
 	#page = agent.get(url)
 	#puts page.body
 	page = File.read("index.html")
-#	page.scan(%r{<script.*src=["|](.*)["|'].*></script>}).each do |item|
-#@		puts path.to_s + item[0].to_s
-#	end
-	srcs = get_script_src page
-	srcs.each do |src|
+
+	# 获取scripts节点
+	scripts = get_script_src page
+	scripts.each do |src|
+		src = "/" + src
+		dir = "down/" + get_folder(src)
+		if !Dir.exist?(dir) then
+			FileUtils.mkdir_p dir
+		end
+		download("http://jansis.net/Sapphire"+src, "down"+ src)
+	end
+	ap scripts
+	
+	css = get_css_src page
+	css.each do |src|
 		src = "/" + src
 		dir = "down/" + get_folder(src)
 		if !Dir.exist?(dir) then
