@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title>弹性云服务器,云主机购买 - 小鸟云</title>
+	<meta name="keywords" content="弹性云服务器,云服务器购买,云主机购买" />
+	<meta name="description" content="小鸟云采用 Intel Haswell CPU、高频DDR4内存，拥有行业领先的硬件计算能力，默认为 I/O 优化实例，搭配 SSD 云盘可获得更好的存储性能。 " />
+	<include file="./__headInclude__"/>
+
+	<link href="/template/home/{:__THEME__}/PC/static/lib/framework/jquery-ui-custom/jquery-ui-1.9.2.custom.css" rel="stylesheet"><!--拉动按钮CSS-->
+	<link href="/template/home/{:__THEME__}/PC/static/css/common/common/component.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="/template/home/{:__THEME__}/PC/static/css/common/module/buy/buy.css" charset="utf-8">
+	<link href="/template/home/{:__THEME__}/PC/static/css/module/server/server.css" rel="stylesheet" type="text/css" />
+	<script src="http://libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+	<script src="/template/home/{:__THEME__}/PC/static/lib/framework/jquery-ui-custom/jquery-ui-1.9.2.custom.min.js"></script>
+	<script src="/template/home/{:__THEME__}/PC/static/lib/plugin/jQuery/jquery.form.js"></script>
+	<script src="/template/home/{:__THEME__}/PC/static/lib/plugin/jQuery/formValidator/jquery.formValidator.js"></script>
+	<script src="/template/home/{:__THEME__}/PC/static/lib/plugin/jQuery/dialog/jquery.dialog.js?skin=niaoyunDialog"></script>
+	<script src="/template/home/{:__THEME__}/PC/static/lib/plugin/jQuery/dialog/plugins/iframeTools.js"></script>
+
+	<script src="/template/home/{:__THEME__}/PC/static/js/common/NY.js"></script>
+	<script src="/template/home/{:__THEME__}/PC/static/js/plugin/jquery.core.js"></script>
+
+	<script src="/template/home/{:__THEME__}/PC/static/js/module/server/buy.js"></script>
+	<style>
+		.number-input-box {
+			width: 90px;
+		}
+		.ny-number-unit {
+			position: absolute;
+			right: 0px;
+			top: 0px;
+			color: #999;
+			text-align: right;
+			width: 31px;
+			height: 100%;
+			background: #f2f2f2;
+			line-height: 30px;
+			text-align: center;
+			border-left: 1px solid #ddd;
+		}
+	</style>
+</head>
+<body class="buy-page cloud-page">
+<include file="./template/home/{:__THEME__}/PC/page/__header__.html"/>
+
+<!--<div class="buy-top">
+	<div class="auto">
+		<div class="pull-left buy-top-left">
+			<span class="text-primary buy-top-title">
+				弹性云服务器购买
+			</span>
+			<span class="text-muted server-slogan">
+				小鸟云采用 Intel Haswell CPU、DDR4 内存，拥有行业领先的硬件计算能力。
+			</span>
+		</div>
+		<div class="buy-top-right pull-right hide">
+			<a href="#a_null" class="text-stress">推荐配置</a>
+		</div>
+	</div>
+</div>-->
+<div class="server-buy-banner"></div>
+<div class="main-content auto clearfix p-relative">
+	<form name="buyForm" id="buyForm" action="/server/buy/order.html" method="post" target="_blank">
+		<input type="hidden" value="1" name="type">
+		<div class="clearfix">
+			<div class="cl mt30 config-choices float-left config-panel" id="serverConfigsChoose">
+				<!--<div class="alert-warn server-warn">
+					用户完成实名认证，即可免费获得最高 4核 4G 5M 配置云服务器一台！ <a target="_blank" href="http://console.niaoyun.com/user/verify/" class="text-primary">立即前往&gt;&gt;</a>
+				</div>-->
+				<div class="config-tier">
+					<div class="config-tier-title default-transition-tree-fast">
+						<span>
+							地域与配置
+						</span>
+					</div>
+					<div class="config-tier-panel">
+						<div class="config-row line-row clearfix">
+							<span class="config-row-title">地域：</span>
+							<div class="config-row-content line-buttons-outer">
+								<input type="hidden" value="1" name="lineid" id="lineIdInput">
+								<div class="line-tip">辽宁高防御节点，超强抗DDOS</div>
+								<div class="butBox button-group line-buttons" id="lineButton">
+									<a href="javascript:;" class="selected enable" title="" data-enable="1" data-value="1" data-description="辽宁高防御节点，超强抗DDOS" data-index="0" data-introurl="/datacenter/liaoning.html">中国辽宁</a>
+									<a href="javascript:;" class="enable" title="" data-enable="1" data-value="2" data-description="BGP多线节点，完美解决南北互通问题" data-index="1" data-introurl="/datacenter/beijing.html">中国北京</a>
+									<a href="javascript:;" class="enable" title="" data-enable="1" data-value="3" data-description="电信直连大陆，免备案，即买即用" data-index="2" data-introurl="/datacenter/hongkong.html">香港国际</a>
+									<a href="javascript:;" class="enable" title="" data-enable="1" data-value="4" data-description="BGP多线节点，全网智能优化，解决南北互联互通" data-index="3" data-introurl="/datacenter/jiangsu.html">中国江苏</a><a href="javascript:;" class="enable" title="" data-enable="1" data-value="5" data-description="高品质移动网络，构建安全稳定移动应用" data-index="4" data-introurl="/datacenter/guangdong.html">中国广东</a>
+								</div>
+								<div class="introUrl line-introduction"><a href="/datacenter/liaoning.html" target="_blank">中国辽宁机房介绍</a></div>
+							</div>
+						</div>
+						<div class="config-row clearfix">
+							<span class="config-row-title">CPU：</span>
+							<div class="config-row-content">
+								<input type="hidden" value="1" name="cpu" id="cpuInput">
+								<div class="butBox button-group" id="cpuButton">
+									<a href="javascript:;" class="selected" data-value="1">1核</a>
+									<a href="javascript:;" class="" data-value="2">2核</a>
+									<a href="javascript:;" class="" data-value="4">4核</a>
+									<a href="javascript:;" class="" data-value="8">8核</a>
+									<a href="javascript:;" class="" data-value="16">16核</a>
+								</div>
+							</div>
+						</div>
+						<div class="config-row clearfix">
+							<span class="config-row-title">内存：</span>
+							<input type="hidden" value="1" name="ram" id="ramInput">
+							<div class="config-row-content">
+								<div class="butBox button-group" id="ramButton">
+									<a href="javascript:;" class="selected" data-value="1">1G</a>
+									<a href="javascript:;" class="" data-value="2">2G</a>
+									<a href="javascript:;" class="" data-value="3">4G</a>
+									<a href="javascript:;" class="" data-value="4">8G</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="config-tier" id="storageContainer">
+					<div class="config-tier-title default-transition-tree-fast">
+						<span>
+							优化与储存
+						</span>
+					</div>
+					<div class="config-tier-panel">
+						<div class="config-row clearfix">
+							<span class="config-row-title">I/0优化：</span>
+							<div class="config-row-content">
+								<div class="butBox button-group">
+									<a href="#a_null" class="selected single-btn">免费开启</a>
+								</div>
+								<span class="text-muted margin-left-10">免费赠送</span><span class="text-stress strong">I/O优化</span>
+							</div>
+						</div>
+						<div class="config-row clearfix">
+							<span class="config-row-title">SSD系统盘：</span>
+							<div class="config-row-content">
+								<div class="butBox button-group">
+									<a href="#a_null" class="selected single-btn">免费赠送</a>
+								</div>
+								<span class="text-muted margin-left-10">系统盘免费赠送</span><span class="text-stress strong">30GB</span>
+							</div>
+						</div>
+						<div class="config-row clearfix">
+							<span class="config-row-title config-row-title-shorter">SSD数据盘：</span>
+							<div class="butBox2 config-row-content">
+								<!--<div class="clearfix">
+									<div class="selectDisk">
+										<div class="dragDisk pull-left slider-length-middle ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all slider-higher" id="harddiskDiv1">
+											&nbsp;
+										</div>
+										<div class="size sltNum pull-left config-input-container">
+											<input type="text" class="config-slider-input" name="harddisks" value="10" maxlength="4" autocomplete="off">
+											<span class="config-input-unit">GB</span>
+										</div>
+									</div>
+								</div>-->
+								<div class="clearfix">
+									<div class="selectDisk">
+										<div class="dragDisk pull-left slider-length-middle ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all slider-higher" id="harddiskDiv1">
+											&nbsp;
+										</div>
+										<div class="size sltNum pull-left config-input-container">
+											<input type="text" class="config-slider-input" name="harddisks[]" value="10" maxlength="4" autocomplete="off">
+											<span class="config-input-unit">GB</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="numBox config-slider-ruler clearfix">
+									<i>0GB</i>
+									<i>250GB</i>
+									<i>500GB</i>
+									<i>750GB</i>
+									<i class="config-last-scale">1000GB</i>
+								</div>
+							</div>
+						</div>
+						<div id="addedDisksContainer" class="config-row">
+							<!-- JS添加 -->
+						</div>
+						<div class="config-row add-disk-row clearfix">
+							<span class="config-row-title config-row-title-shorter">&nbsp;</span>
+							<div class="butBox2 config-row-content">
+								<a href="#a_null" class="add-disk" id="addDisk">&nbsp;</a>
+								<span class="show-disk-amount">
+									还可以添加
+									<span class="text-stress strong">
+										<span id="lastDiskNum" class="">4</span>块
+									</span>
+									磁盘
+								</span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="config-tier">
+					<div class="config-tier-title default-transition-tree-fast">
+						<span>
+							网络与安全
+						</span>
+					</div>
+					<div class="config-tier-panel">
+						<div class="config-row clearfix">
+							<span class="config-row-title config-row-title-shorter">公网带宽：</span>
+							<div class="butBox2 config-row-content">
+								<div class="clearfix">
+									<div class="selectDisk">
+										<div class="dragDisk pull-left slider-length-middle ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all slider-higher" id="bandwidthDiv">
+											&nbsp;
+										</div>
+										<div class="size sltNum pull-left config-input-container">
+											<input type="text" class="config-slider-input" name="bandwidth" value="1" maxlength="3" autocomplete="off">
+											<span class="config-input-unit">M</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="numBox config-slider-ruler clearfix">
+									<i>1MB</i>
+									<i>75MB</i>
+									<i>150MB</i>
+									<i>225MB</i>
+									<i class="config-last-scale">300MB</i>
+								</div>
+							</div>
+						</div>
+						<div class="config-row config-row-defense clearfix buying-time">
+							<span class="config-row-title">防御峰值：</span>
+							<div class="butBox2 config-row-content">
+								<input type="hidden" name="defense">
+								<div class="selectDefense">
+									<div class="dragDefense slider-length-long slider-higher" id="defenseDiv">&nbsp;</div>
+								</div>
+							</div>
+							<!--下方代码块取消注释可以看页面效果-->
+							<!--<div class="butBox2 config-row-content">
+								<input type="hidden" name="defense" value="20">
+								<div class="selectDefense">
+									<div class="dragDefense slider-length-long slider-higher ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="defenseDiv">&nbsp;<div class="ui-slider-range ui-widget-header ui-slider-range-min" style="width: 37.5%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="http://www.niaoyun.com/server/buy/#" style="left: 37.5%;"></a></div>
+								</div>
+							</div>-->
+						</div>
+					</div>
+				</div>
+				<div class="config-tier">
+					<div class="config-tier-title config-tier-title-4 default-transition-tree-fast">
+						<span>
+							系统信息
+						</span>
+					</div>
+					<div class="config-tier-panel">
+						<div class="config-row clearfix">
+							<span class="config-row-title config-row-title-shorter">公共镜像：</span>
+							<div class="butBox2 config-row-content">
+								<input type="hidden" name="systemID" value="1" autocomplete="off" />
+								<div class="selectButton systemButton pull-left">
+									<dl>
+										<dt class="close">
+											<span class="ico">
+												<span class="windows"></span>
+											</span>
+											<span class="text">Windows 2003 企业版</span>
+										</dt>
+										<dd>
+											<div class="select">
+												<ul id="systemButton"></ul>
+											</div>
+										</dd>
+									</dl>
+								</div>
+								<div class="config-tip">
+									<div class="config-tip-content">
+										Linux 操作系统数据盘挂载到 /data 目录
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="config-row clearfix">
+							<span class="config-row-title config-row-title-shorter">公共镜像：</span>
+							<div class="butBox2 config-row-content">
+								<input name="loginName" value="root" disabled="disabled" class="input-reset">
+							</div>
+						</div>
+						<div class="config-row clearfix">
+							<span class="config-row-title config-row-title-shorter">登录密码：</span>
+							<div class="butBox2 config-row-content">
+								<input name="loginPassword" type="password" value="" class="input-reset">
+							</div>
+							<div class="config-tip">
+								<div class="config-tip-content config-tip-one">
+									8-30位字符，必须同时包含字母和数字
+								</div>
+							</div>
+						</div>
+						<div class="config-row clearfix">
+							<span class="config-row-title config-row-title-shorter">确认密码：</span>
+							<div class="butBox2 config-row-content">
+								<input name="loginPassword2" type="password" value="" class="input-reset">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="config-tier">
+					<div class="config-tier-title config-tier-title-4 default-transition-tree-fast">
+						<span>
+							购买时长
+						</span>
+					</div>
+					<div class="config-tier-panel buying-time">
+						<div class="config-row clearfix">
+							<span class="config-row-title config-row-title-shorter">购买时长：</span>
+							<div class="butBox2 config-row-content config-row-months">
+								<div class="clearfix">
+									<input type="hidden" name="months" value="1" autocomplete="off" />
+									<div class="month-tip"></div>
+									<div class="selectMonths">
+										<div class="dragMonths pull-left slider-length-long ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all slider-higher" id="monthsDiv">
+											&nbsp;
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="config-row config-row-defense clearfix">
+							<span class="config-row-title">购买数量：</span>
+							<div class="butBox2 config-row-content purchase-amount">
+								<input id="amountInput" maxlength="2" type="text" name="number" class="ny-input-reset ny-number-input" data-num_min="1" data-num_step="1" data-num_unit="台" data-num_max="20" autocomplete="off" value="1">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<input type="hidden" id="paysorts"  value="1"  autocomplete="off"/>
+
+			<div class="cr mt65 config-view-outer" id="serverConfigsView">
+				<div class="config-view-inner">
+					<div class="title1">
+						<h2 class="config-view-title">已选云服务器配置</h2>
+					</div>
+					<div class="block01 mt10">
+						<ul class="list01 config-view-list">
+							<li>
+								<span class="config-view-item-title">地域：</span>
+								<em id="lineName">辽宁机房</em>
+							</li>
+							<li>
+								<span class="config-view-item-title">配置：</span>
+								<em id="cpu">1</em><em id="eqTypeItem">核</em>
+								<em id="ram">1</em><em>G</em>
+							</li>
+							<li>
+								<span class="config-view-item-title">系统盘：</span>
+								<em>30G</em>
+							</li>
+							<li>
+								<span class="config-view-item-title">磁盘：</span>
+								<em id="diskSize">10</em>GB
+								(共<em id="diskNum">1</em>块)
+							</li>
+							<li>
+								<span class="config-view-item-title">带宽：</span>
+								<em id="bandwidth">1</em>M
+							</li>
+							<li>
+								<span class="config-view-item-title">防御：</span>
+								<em id="defense">10</em>G
+							</li>
+							<li>
+								<span class="config-view-item-title">系统：</span>
+								<em id="systemName">Windows 2003 企业版</em>
+							</li>
+							<li>
+								<span class="config-view-item-title">购买量：</span>
+								<em id="months">1个月</em> × <em id="number">1</em>台
+							</li>
+							<li id="originPriceOuter">
+								<span class="config-view-item-title">原价：</span>
+								￥<s id="originPrice"></s>
+							</li>
+							<li class="price-container">
+								<span class="config-view-item-title price-title">配置费用：</span>
+								<span class="text-stress strong server-price">
+									<span class="rmb-symbol">￥</span><span id="price"></span>
+								</span>
+							</li>
+							<li class="gift-outer">
+								<span class="config-view-item-title"></span>
+								<div class="text-stress favorable-reminder">
+									个人认证用户9.5折优惠 <br>
+								</div>
+							</li>
+							<li class="text-center">
+								<a href="#a_null" class="server-buy-btn strong default-transition buyButton">
+									购买当前配置
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</form>
+</div>
+
+<!-- 隐藏模板：添加硬盘row -->
+<div id="addedDiskTpl" class="hide">
+	<div class="config-row clearfix">
+		<span class="config-row-title config-row-title-shorter">&nbsp;</span>
+		<div class="butBox2 config-row-content">
+			<div class="clearfix">
+				<div class="selectDisk">
+					<div class="dragDisk pull-left slider-length-middle ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all slider-higher" id="harddiskDiv2">&nbsp;</div>
+					<div class="size sltNum pull-left config-input-container">
+						<input type="text" class="config-slider-input" name="harddisks[]" value="10" maxlength="4" autocomplete="off">
+						<span class="config-input-unit">GB</span>
+					</div>
+					<span class="delete-disk-row margin-left-10" id="close">
+					</span>
+				</div>
+			</div>
+
+			<div class="numBox config-slider-ruler clearfix">
+				<i>0GB</i>
+				<i>250GB</i>
+				<i>500GB</i>
+				<i>750GB</i>
+				<i class="config-last-scale">1000GB</i>
+			</div>
+		</div>
+	</div>
+</div>
+
+<include file="./template/home/{:__THEME__}/PC/page/__footer__.html"/>
+
+</body>
+</html>
