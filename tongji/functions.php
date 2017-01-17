@@ -63,3 +63,6 @@ function _empty_line($file, $times) {
 	
 	return $times -1;
 }
+
+
+
